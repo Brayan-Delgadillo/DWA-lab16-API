@@ -14,8 +14,10 @@ const peliculaSchema = new mongoose.Schema({
   });
 
 const socioSchema = new mongoose.Schema({
+    codigo: Number,
     nombre: String,
-    apellido: String,
+    direccion: String,
+    telefono: Number
 });
   
 const prestamoSchema = new mongoose.Schema({

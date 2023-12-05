@@ -15,6 +15,17 @@ app.get('/peliculas', async (req, res) => {
       }
 });
 
+app.get('/peliculasOrdenTitulo', async (req, res) => {
+    try {
+      const peliculas = await Pelicula.find({}).sort({ titulo: 1 }); // Orden ascendente por título
+  
+      res.json(peliculas);
+    } catch (error) {
+      res.status(500).json({ message: 'Error al obtener las películas', error: error.message });
+    }
+  });
+  
+
 app.post('/peliculas', async (req, res) => {
     try {
         const nuevaPelicula = new Pelicula(req.body);
